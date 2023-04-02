@@ -1,0 +1,98 @@
+openapi: 3.0.0
+info:
+  title: Social App
+  description: My first express app and swegger documentation.
+  version: 1.0.2
+
+servers:
+  - url: "http://localhost:4000/api/v1"
+    description: Optional server description, e.g. Internal staging server for testing
+  - url: "https://socials-r0ge.onrender.com/api/v1"
+    description: Optional server description, e.g. Main (production) server
+
+components:
+  securitySchemes:
+    BasicAuth:
+      type: http
+      scheme: basic
+    BearerAuth:
+      type: http
+      scheme: bearer
+
+paths:
+  /linkedin: 
+    get:
+      summary: Returns the userid, following and followers count
+      responses: 
+        '200': #status code
+          description: returns an object
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id: 
+                    type: string
+                  following:
+                    type: number
+                  follower:
+                    type: number 
+
+  /twitter: 
+    get:
+      summary: Returns the userid, following and followers count
+      responses: 
+        '200': #status code
+          description: returns an object
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id: 
+                    type: string
+                  following:
+                    type: number
+                  follower:
+                    type: number
+
+  /github: 
+    get:
+      summary: Returns the userid, following and followers count
+      responses: 
+        '200': #status code
+          description: returns an object
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id: 
+                    type: string
+                  following:
+                    type: number
+                  follower:
+                    type: number
+
+  /{token}: 
+    get:
+      summary: Returns whatever in the parameter
+      parameters:
+        - name: token
+          default: Subham
+          in: path
+          schema: 
+            type: string
+      responses: 
+        '200': #status code
+          description: returns an object
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  params: 
+                    type: string
+                
+
+
